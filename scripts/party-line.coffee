@@ -25,8 +25,3 @@ module.exports = (robot) ->
 
         message = new Xmpp.Element('message', params).c('body').t(text)
         robot.xmppClient.send message
-
-
-    # console.log "#{from.user} says #{text}"
-    # console.log "#{robot.xmppRoster}"
-
