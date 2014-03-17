@@ -14,14 +14,16 @@ Xmpp = require 'node-xmpp'
 
 module.exports = (robot) ->
   robot.catchAll (msg) ->
-    from = new Xmpp.JID(msg.message.room)
-    text = "#{from.user}: #{msg.message.text}"
+    if (robot.adapter.client.roster)
+      text = "#{msg.message.user.id}: #{msg.message.text}"
 
-    for jid in robot.xmppRoster
-      if from.user != jid.user
-        params =
-          to: jid.toString()
-          type: 'chat'
+      for jid in robot.adapter.client.roster
+        if msg.message.user.id != jid.user
+          robot.logger.info "Sending to #{jid.user}"
 
-        message = new Xmpp.Element('message', params).c('body').t(text)
-        robot.adapter.client.send message
+          params =
+            to: jid.toString()
+            type: 'chat'
+
+          message = new Xmpp.Element('message', params).c('body').t(text)
+          robot.adapter.client.send message
