@@ -24,4 +24,4 @@ module.exports = (robot) ->
           type: 'chat'
 
         message = new Xmpp.Element('message', params).c('body').t(text)
-        robot.xmppClient.send message
+        robot.adapter.client.send message
