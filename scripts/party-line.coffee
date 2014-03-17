@@ -1,14 +1,26 @@
 # Description:
-#   Set up an XMPP party line
+#   Set up an XMPP party line. Any messages the hubot gets
+#   will be relayed to all contacts on the XMPP client's
+#   primary roster (contact list).
 #
 # Dependencies:
-#   None
+#   "hubot": "2.7.2"
+#   "node-xmpp": "0.15.0"
+#   "hubot-xmpp": "0.1.11"
 #
 # Configuration:
-#   None
+#   (Required by hubot-xmpp)
+#   HUBOT_XMPP_USERNAME
+#   HUBOT_XMPP_PASSWORD
+#   HUBOT_XMPP_ROOMS
 #
 # Commands:
 #   None
+#   This is intened to relay *all* messages to *all* contacts.
+#
+# Authors:
+#   PRX, Chris Kalafarski
+#
 
 Xmpp = require 'node-xmpp'
 
