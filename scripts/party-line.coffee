@@ -6,7 +6,7 @@
 # Dependencies:
 #   "hubot": "2.7.2"
 #   "node-xmpp": "0.15.0"
-#   "hubot-xmpp": "0.1.11"
+#   "hubot-xmpp": "git://github.com/farski/hubot-xmpp.git/xmpp-roster-support"
 #
 # Configuration:
 #   (Required by hubot-xmpp)
